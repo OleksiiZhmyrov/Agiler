@@ -1,0 +1,62 @@
+ol.tree
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+ol.tree li
+{ 
+	position: relative; 
+	list-style: none;
+}
+
+ol.tree li.item a
+{
+	color: lightgray;
+	text-decoration: none;
+	display: block;
+}
+
+ol.tree li input
+{
+	position: absolute;
+	left: 0;
+	margin-left: 0;
+	opacity: 0;
+	z-index: 2;
+	cursor: pointer;
+	top: 0;
+}
+
+ol.tree li input + ol
+{
+	margin: 0;
+}
+
+ol.tree li input + ol > li
+{ 
+	display: none; 
+}
+
+ol.tree li label
+{
+	cursor: pointer;
+	display: block;
+}
+
+ol.tree li input:checked + ol
+{
+	padding: 0 0 0 15px;
+	height: auto;
+}
+
+ol.tree li input:checked + ol > li
+{
+	display: block;
+}
+
+li input:checked + ol > li:last-child
+{
+    padding-bottom: 10px;
+}
