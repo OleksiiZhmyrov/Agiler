@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from retro.models import Sticker, Board, TYPE_CHOICES, GOOD
+from retro.models import Sticker, Board
+from model_choices import *
 from core.models import Sprint, Team
 
 
@@ -7,7 +8,8 @@ class StickerSerializer(serializers.Serializer):
     pk = serializers.Field()
     summary = serializers.CharField(required=True, max_length=1024)
     is_completed = serializers.BooleanField(required=False, default=False)
-    type = serializers.ChoiceField(choices=TYPE_CHOICES, default=GOOD)
+    type = serializers.ChoiceField(choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_GOOD)
+    status = serializers.ChoiceField(choices=STICKER_STATUS_CHOICES, default=STICKER_STATUS_CREATED)
     owner = serializers.Field(source='owner.pk')
 
     board = serializers.PrimaryKeyRelatedField(many=False, queryset=Board.objects.all())
