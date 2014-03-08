@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "skeleton/blocks/head.html" %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-menu">
+                            {% include "skeleton/blocks/logo.html" %}
+                            {% include "skeleton/blocks/side_menu.html" %}
+                        </div>
+                        <div class="sidebar-footer">
+                            {% include "skeleton/blocks/footer.html" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Retro boards</a></li>
+                        <li><a href="#">Alpha</a></li>
+                        <li class="active">Sprint 3</li>
+                    </ol>
+
+                    <h1 class="page-header">Dashboard</h1>
+                    <h2 class="sub-header">Section title</h2>
+
+                    <div class="table-responsive">
+                        {% include "skeleton/blocks/mock_table.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# JS includes #}
+        <script src="../static/js/jquery.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+    </body>
+</html>

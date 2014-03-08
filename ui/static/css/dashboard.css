@@ -72,3 +72,10 @@ body {
     height: 30px;
     color: #ffffff;
 }
+
+div.logo {
+    padding: 10px 0 15px;
+    margin: 0;
+    width: 217px;
+    height: 75px;
+}
