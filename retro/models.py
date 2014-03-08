@@ -1,16 +1,12 @@
 from django.db import models
-
-GOOD = "G"
-CHANGE = "C"
-ACTION = "A"
-TYPE_CHOICES = ((GOOD, 'was good'), (CHANGE, 'need to change'), (ACTION, 'action point'))
+from model_choices import *
 
 
 class Sticker(models.Model):
     created = models.DateTimeField('Creation Date', auto_now_add=True)
     summary = models.CharField('Description', max_length=1024, null=True, blank=True)
-    is_completed = models.BooleanField('Is Completed', default=False)
-    type = models.CharField("type", max_length=1, choices=TYPE_CHOICES, default=CHANGE)
+    type = models.CharField('type', max_length=1, choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_CHANGE)
+    status = models.CharField('status', max_length=1, choices=STICKER_STATUS_CHOICES, default=STICKER_STATUS_CREATED)
     owner = models.ForeignKey('auth.User', related_name='stickers')
     board = models.ForeignKey('retro.Board', related_name='stickers')
 
