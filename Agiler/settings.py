@@ -67,6 +67,21 @@ DATABASES = {
     }
 }
 
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
+
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates/'),
+    os.path.join(PROJECT_ROOT, 'ui/templates/'),
+)
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static/')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'ui/static'),
+)
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 

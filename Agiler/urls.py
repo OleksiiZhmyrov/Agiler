@@ -8,6 +8,7 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^api/ws100/retro/', include('retro.urls')),
                        url(r'^api/ws100/core/', include('core.urls')),
+                       url(r'', include('ui.urls')),
 )
 
 urlpatterns += patterns('',
