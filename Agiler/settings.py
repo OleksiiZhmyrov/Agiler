@@ -72,7 +72,8 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static/')
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'ui/static/'),
-    os.path.join(PROJECT_ROOT, 'static/distrib/')
+    os.path.join(PROJECT_ROOT, 'static/distrib/'),
+    os.path.join(PROJECT_ROOT, 'static/temp/')
 )
 
 STATICFILES_FINDERS = (
