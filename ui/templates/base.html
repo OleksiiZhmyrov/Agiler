@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% include "skeleton/blocks/head.html" %}
+        {% include "blocks/head.html" %}
     </head>
     <body>
         <div class="container-fluid">
@@ -9,11 +9,11 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <div class="sidebar-container">
                         <div class="sidebar-menu">
-                            {% include "skeleton/blocks/logo.html" %}
-                            {% include "skeleton/blocks/side_menu.html" %}
+                            {% include "blocks/logo.html" %}
+                            {% include "blocks/side_menu.html" %}
                         </div>
                         <div class="sidebar-footer">
-                            {% include "skeleton/blocks/footer.html" %}
+                            {% include "blocks/footer.html" %}
                         </div>
                     </div>
                 </div>
@@ -28,13 +28,14 @@
                     <h2 class="sub-header">Section title</h2>
 
                     <div class="table-responsive">
-                        {% include "skeleton/blocks/mock_table.html" %}
+                        {% include "blocks/mock_table.html" %}
                     </div>
                 </div>
             </div>
         </div>
 
         {# JS includes #}
-        {% include "skeleton/blocks/js_includes.html" %}
+        {% include "blocks/includes/js_includes_distrib.html" %}
+        {% include "blocks/includes/js_includes_project.html" %}
     </body>
 </html>

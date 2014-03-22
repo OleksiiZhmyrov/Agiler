@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from core.models import Team, Sprint
+from core.objects import ApplicationSettings
 from django.contrib.auth.models import User
 
 
@@ -49,3 +50,17 @@ class SprintSerializer(serializers.Serializer):
     class Meta:
         model = Sprint
         fields = ('pk', 'number', 'start_date', 'finish_date', 'boards',)
+
+
+class ApplicationSettingsSerializer(serializers.Serializer):
+    users_count = serializers.IntegerField()
+    sprints_count = serializers.IntegerField()
+    teams_count = serializers.IntegerField()
+
+    def restore_object(self, attrs, instance=None):
+        if instance is not None:
+            instance.users_count = attrs.get('users_count', instance.users_count)
+            instance.sprints_count = attrs.get('sprints_count', instance.sprints_count)
+            instance.teams_count = attrs.get('teams_count', instance.teams_count)
+            return instance
+        return ApplicationSettings(**attrs)

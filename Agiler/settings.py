@@ -89,9 +89,7 @@ USE_TZ = True
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.XMLRenderer',
         'rest_framework.renderers.JSONRenderer',
-        #'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'PAGINATE_BY': 10
 }
@@ -116,7 +114,7 @@ LOGGING = {
             'filename': os.path.join(PROJECT_ROOT, 'env/logs/debug.log'),
             'formatter': 'verbose',
         },
-        'console':{
+        'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
