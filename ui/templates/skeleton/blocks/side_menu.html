@@ -2,25 +2,18 @@
     <li>
         <label for="retroboards" class="tree-label">Retro boards</label>
         <input type="checkbox" id="retroboards" />
-        <ol>
-            <li class="item">
-                <a href="#">Alpha sprint 3 <span class="badge pull-right">14</span></a>
-            </li>
-            <li class="item">
-                <a href="#">Sigma sprint 2 <span class="badge pull-right">2</span></a>
-            </li>
-            <li class="item">
-                <a href="#">Omega sprint 3 <span class="badge pull-right">16</span></a>
-            </li>
-            <li class="item">
-                <a href="#">Delta sprint 3 <span class="badge pull-right">1</span></a>
-            </li>
-            <li class="item">
-                <a href="#">Alpha sprint 2 <span class="badge pull-right">0</span></a>
-            </li>
-            <li class="item">
-                <a href="#">View all</a></li>
+        <ol id="boadrs-list">
+          {% verbatim %}
+            <script id="boardsList" type="text/html">
+              <li class="item">
+                  <a href="#">{{ team.name }} {{ sprint }}<span class="badge pull-right">{{ stickers.length }}</span></a>
+              </li>
+            </script>
+          {% endverbatim %}
+
+          <li><a href="#">View all</a></li>
         </ol>
+
     </li>
     <li>
         <label for="tools" class="tree-label">Tools</label>
