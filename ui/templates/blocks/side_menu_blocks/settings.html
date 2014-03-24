@@ -1,13 +1,18 @@
 <label for="settings" class="tree-label">Settings</label>
 <input type="checkbox" id="settings" />
-<ol>
+<ol id="settings-list">
+      {% verbatim %}
+        <script id="settingsList" type="text/html">
     <li class="item">
-        <a href="#">Users <span class="badge pull-right">46</span></a>
+        <a href="#">Users <span class="badge pull-right">{{ users_count }}</span></a>
     </li>
     <li class="item">
-        <a href="#">Teams <span class="badge pull-right">3</span></a
+        <a href="#">Teams <span class="badge pull-right">{{ teams_count }}</span></a
                 ></li>
     <li class="item">
-        <a href="#">Sprints <span class="badge pull-right">6</span></a>
+        <a href="#">Sprints <span class="badge pull-right">{{ sprints_count }}</span></a>
     </li>
+        </script>
+    {% endverbatim %}
+
 </ol>
