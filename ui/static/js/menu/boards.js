@@ -25,7 +25,11 @@ $(function(){
         initialize: function() {
             this.boards = new BoardCollection();
             this.boards.bind('all', this.render, this);
-            this.boards.fetch();
+            this.boards.fetch({
+                error: (function (e) {
+                alert(' Service request failure: ' + e);
+            })
+            });
         },
 
         render: function () {

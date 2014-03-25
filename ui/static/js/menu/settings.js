@@ -11,7 +11,11 @@ $(function(){
         initialize: function() {
             this.setting = new Settings();
             this.setting.bind('sync', this.render, this);
-            this.setting.fetch();
+            this.setting.fetch({
+                error: (function (e) {
+                alert(' Service request failure: ' + e);
+            })
+            });
         },
 
         render: function () {
