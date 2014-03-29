@@ -1,54 +1,54 @@
-$(function(){
+var Sprint = Backbone.Model.extend({
+    ToJSONwithFormattedDate: function() {
+        var attr = _.clone(this.attributes);
+        attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
+        attr.finish_date = moment(attr.finish_date).format('DD-MM-YYYY');
+        return attr;
+    }
+});
 
-    var Sprint = Backbone.Model.extend({
-        ToJSONwithFormattedDate: function() {
-            var attr = _.clone(this.attributes);
-            attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
-            attr.finish_date = moment(attr.finish_date).format('DD-MM-YYYY');
-            return attr;
-        }
-    });
+var SprintView = Backbone.View.extend({
+    render: function () {
+        this.el = ich.sprintsList(this.model.ToJSONwithFormattedDate());
+        return this;
+    }
+});
 
-    var SprintView = Backbone.View.extend({
-        render: function () {
-            this.el = ich.sprintsList(this.model.ToJSONwithFormattedDate());
-            return this;
-        }
-    });
+var SprintCollection = Backbone.Collection.extend({
+    model: Sprint,
+    url: '/api/ws100/core/sprints/',
 
-    var SprintCollection = Backbone.Collection.extend({
-        model: Sprint,
-        url: '/api/ws100/core/sprints/',
+    parse: function(response) {
+        return response.results;
+    }
+});
 
-        parse: function(response) {
-            return response.results;
-  }
-    });
+var SprintsView = Backbone.View.extend({
+    tagName: 'tbody',
 
-    var AppView = Backbone.View.extend({
-        tagName: 'tbody',
-
-        initialize: function() {
-            this.boards = new SprintCollection();
-            this.boards.bind('all', this.render, this);
-            this.boards.fetch({
-                error: (function (e) {
+    initialize: function() {
+        this.boards = new SprintCollection();
+        this.boards.bind('all', this.render, this);
+        this.boards.fetch({
+            error: (function (e) {
                 alert(' Service request failure: ' + e);
             })
-            });
-        },
+        });
+    },
 
-        render: function () {
-            this.$el.empty();
-            this.boards.each(function (sprint) {
-                $(this.el).append(new SprintView({model: sprint}).render().el);
-            }, this);
+    render: function () {
+        this.$el.empty();
+        this.boards.each(function (sprint) {
+            $(this.el).append(new SprintView({model: sprint}).render().el);
+        }, this);
 
-            return this;
-        }
-    })
+        return this;
+    }
+})
 
-    var app = new AppView();
-    $('#sprints-list').append(app.render().el);
+var sprints = new SprintsView();
+
+function renderSprints(){
+    $('#sprints-list').append(sprints.render().el);
     $('#page-sprints').show();
-});
+}
