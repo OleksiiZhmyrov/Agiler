@@ -1,0 +1,30 @@
+<div class="app-page" style="display: none" id="page-teams">
+
+    <ol class="breadcrumb">
+        <li><a href="/ui/">Agiler</a></li>
+        <li>Settings</li>
+        <li class="active">Teams</li>
+    </ol>
+
+    <h1>Teams</h1>
+
+    <table id="teams-list" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Team name</th>
+            <th>Label</th>
+            <th>Boards count</th>
+        </tr>
+        </thead>
+        {% verbatim %}
+        <script id="teamsList" type="text/html">
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ label }}</td>
+            <td>{{ boards.length }}</td>
+          </tr>
+        </script>
+        {% endverbatim %}
+    </table>
+</div>
+
