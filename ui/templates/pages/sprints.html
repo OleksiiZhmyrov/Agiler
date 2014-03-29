@@ -1,0 +1,32 @@
+<div class="" style="display: none" id="page-sprints">
+
+    <ol class="breadcrumb">
+        <li><a href="/ui/">Agiler</a></li>
+        <li>Settings</li>
+        <li class="active">Sprints</li>
+    </ol>
+
+    <h1>Sprints</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Boards count</th>
+        </tr>
+        </thead>
+        <tbody id="sprints-list">
+        {% verbatim %}
+        <script id="sprintsList" type="text/html">
+                <td>Sprint {{ number }}</td>
+                <td>{{ start_date }}</td>
+                <td>{{ finish_date }}</td>
+                <td>{{ boards.length }}</td>
+        </script>
+        {% endverbatim %}
+        </tbody>
+    </table>
+</div>
+
