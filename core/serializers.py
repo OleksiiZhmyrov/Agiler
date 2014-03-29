@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'stickers', 'boards')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'is_active', 'date_joined', 'stickers', 'boards')
 
 
 class TeamSerializer(serializers.Serializer):

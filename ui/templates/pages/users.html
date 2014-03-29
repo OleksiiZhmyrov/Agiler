@@ -1,0 +1,40 @@
+<div class="app-page" style="display: none" id="page-users">
+
+    <ol class="breadcrumb">
+        <li><a href="/ui/">Agiler</a></li>
+        <li>Settings</li>
+        <li class="active">Users</li>
+    </ol>
+
+    <h1>Users</h1>
+
+    <table id="users-list" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email address</th>
+            <th>Is active?</th>
+            <th>Date joined</th>
+            <th>Boards count</th>
+            <th>Stickers count</th>
+        </tr>
+        </thead>
+        {% verbatim %}
+        <script id="usersList" type="text/html">
+          <tr>
+            <td>{{ username }}</td>
+            <td>{{ first_name }}</td>
+            <td>{{ last_name }}</td>
+            <td>{{ email }}</td>
+            <td>{{ is_active }}</td>
+            <td>{{ date_joined }}</td>
+            <td>{{ boards.length }}</td>
+            <td>{{ stickers.length }}</td>
+          </tr>
+        </script>
+        {% endverbatim %}
+    </table>
+</div>
+
