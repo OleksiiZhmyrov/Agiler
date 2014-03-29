@@ -26,7 +26,7 @@ $(function(){
     });
 
     var AppView = Backbone.View.extend({
-        tagName: 'tr',
+        tagName: 'tbody',
 
         initialize: function() {
             this.boards = new SprintCollection();

@@ -8,7 +8,7 @@
 
     <h1>Sprints</h1>
 
-    <table class="table table-striped">
+    <table id="sprints-list" class="table table-striped">
         <thead>
         <tr>
             <th>Number</th>
@@ -17,16 +17,16 @@
             <th>Boards count</th>
         </tr>
         </thead>
-        <tbody id="sprints-list">
         {% verbatim %}
         <script id="sprintsList" type="text/html">
-                <td>Sprint {{ number }}</td>
-                <td>{{ start_date }}</td>
-                <td>{{ finish_date }}</td>
-                <td>{{ boards.length }}</td>
+          <tr>
+            <td>Sprint {{ number }}</td>
+            <td>{{ start_date }}</td>
+            <td>{{ finish_date }}</td>
+            <td>{{ boards.length }}</td>
+          </tr>
         </script>
         {% endverbatim %}
-        </tbody>
     </table>
 </div>
 
