@@ -1,8 +1,12 @@
 var Sprint = Backbone.Model.extend({
     ToJSONwithFormattedDate: function() {
         var attr = _.clone(this.attributes);
-        attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
-        attr.finish_date = moment(attr.finish_date).format('DD-MM-YYYY');
+        if(attr.start_date) {
+            attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
+        }
+        if(attr.finish_date) {
+            attr.finish_date = moment(attr.finish_date).format('DD-MM-YYYY');
+        } 
         return attr;
     }
 });
