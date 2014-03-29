@@ -1,10 +1,17 @@
 $(function(){
 
-    var Sprint = Backbone.Model.extend({});
+    var Sprint = Backbone.Model.extend({
+        ToJSONwithFormattedDate: function() {
+            var attr = _.clone(this.attributes);
+            attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
+            attr.finish_date = moment(attr.finish_date).format('DD-MM-YYYY');
+            return attr;
+        }
+    });
 
     var SprintView = Backbone.View.extend({
         render: function () {
-            this.el = ich.sprintsList(this.model.toJSON());
+            this.el = ich.sprintsList(this.model.ToJSONwithFormattedDate());
             return this;
         }
     });
