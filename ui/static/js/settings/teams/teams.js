@@ -39,9 +39,9 @@ var TeamsView = Backbone.View.extend({
     }
 })
 
-var teams = new TeamsView();
-
 function renderTeams(){
-    $('#teams-list').append(teams.render().el);
+    var teams = new TeamsView();
+
+    $('#teams-list').html(teams.render().el);
     $('#page-teams').show();
 }

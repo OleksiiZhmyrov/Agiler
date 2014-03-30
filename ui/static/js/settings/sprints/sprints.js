@@ -50,9 +50,9 @@ var SprintsView = Backbone.View.extend({
     }
 })
 
-var sprints = new SprintsView();
-
 function renderSprints(){
-    $('#sprints-list').append(sprints.render().el);
+    var sprints = new SprintsView();
+
+    $('#sprints-list').html(sprints.render().el);
     $('#page-sprints').show();
 }

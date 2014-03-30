@@ -29,7 +29,7 @@ var UsersView = Backbone.View.extend({
 
     initialize: function() {
         this.boards = new UserCollection();
-        this.boards.bind('all', this.render, this);
+        this.boards.bind('sync', this.render, this);
         this.boards.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -47,9 +47,9 @@ var UsersView = Backbone.View.extend({
     }
 })
 
-var users = new UsersView();
-
 function renderUsers(){
-    $('#users-list').append(users.render().el);
+    var users = new UsersView();
+
+    $('#users-list').html(users.render().el);
     $('#page-users').show();
 }
