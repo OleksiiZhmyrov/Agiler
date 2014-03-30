@@ -33,6 +33,9 @@ var SprintsView = Backbone.View.extend({
     initialize: function() {
         this.boards = new SprintCollection();
         this.boards.bind('all', this.render, this);
+    },
+
+    fetch: function() {
         this.boards.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -50,9 +53,10 @@ var SprintsView = Backbone.View.extend({
     }
 })
 
-function renderSprints(){
-    var sprints = new SprintsView();
+var sprints = new SprintsView();
 
+function renderSprints(){
+    sprints.fetch();
     $('#sprints-list').html(sprints.render().el);
     $('#page-sprints').show();
 }

@@ -22,6 +22,9 @@ var TeamsView = Backbone.View.extend({
     initialize: function() {
         this.boards = new TeamsCollection();
         this.boards.bind('all', this.render, this);
+    },
+
+    fetch: function() {
         this.boards.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -39,9 +42,10 @@ var TeamsView = Backbone.View.extend({
     }
 })
 
-function renderTeams(){
-    var teams = new TeamsView();
+var teams = new TeamsView();
 
+function renderTeams(){
+    teams.fetch();
     $('#teams-list').html(teams.render().el);
     $('#page-teams').show();
 }
