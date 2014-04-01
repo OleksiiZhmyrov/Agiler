@@ -10,10 +10,8 @@
 {% load staticfiles %}
 <link rel="shortcut icon" href="{% static "" %}">
 
-<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-<link href="{% static "css/dashboard.css" %}" rel="stylesheet">
-<link href="{% static "css/tree.css" %}" rel="stylesheet">
-<link href="{% static "css/alert.css" %}" rel="stylesheet">
+{% include "blocks/includes/css_includes_distrib.html" %}
+{% include "blocks/includes/css_includes_project.html" %}
 
 <title>Agiler :: {% block title %}{% endblock %}</title>
 
