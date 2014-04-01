@@ -1,0 +1,19 @@
+<div class="app-page" id="page-retro-board">
+
+    <ol class="breadcrumb">
+        <li><a href="#">Agiler</a></li>
+        <li>Retro Boards</li>
+        <li>{team}</li>
+        <li class="active">{sprint number}</li>
+    </ol>
+
+    <h1>{team} Sprint {sprint number}</h1>
+
+    <hr>
+
+    {% include "pages/board/was_good.html" %}
+    {% include "pages/board/need_to_change.html" %}
+    {% include "pages/board/action_points.html" %}
+
+</div>
+
