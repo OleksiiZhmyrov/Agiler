@@ -10,9 +10,7 @@ class StickerSerializer(serializers.Serializer):
     summary = serializers.CharField(required=True, max_length=1024)
     type = serializers.ChoiceField(choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_GOOD)
     status = serializers.ChoiceField(choices=STICKER_STATUS_CHOICES, default=STICKER_STATUS_CREATED)
-    owner = serializers.Field(source='owner.pk')
-
-    board = serializers.PrimaryKeyRelatedField(many=False, queryset=Board.objects.all())
+    owner = serializers.Field(source='owner.username')
 
     def restore_object(self, attrs, instance=None):
         if instance:
@@ -23,18 +21,17 @@ class StickerSerializer(serializers.Serializer):
 
     class Meta:
         model = Sticker
-        fields = ('pk', 'summary', 'status', 'type', 'owner', 'board',)
+        fields = ('pk', 'summary', 'status', 'type', 'owner',)
 
 
 class BoardSerializer(serializers.Serializer):
     pk = serializers.Field()
     isActive = serializers.BooleanField(required=False, default=False)
     voteLimit = serializers.IntegerField(required=False, default=3)
-    owner = serializers.Field(source='owner.pk')
+    owner = serializers.Field(source='owner.username')
 
     sprint = serializers.PrimaryKeyRelatedField(many=False, queryset=Sprint.objects.all())
     team = TeamSerializer(many=False)
-
 
     stickers = StickerSerializer(many=True, required=False)
 

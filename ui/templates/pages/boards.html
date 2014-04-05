@@ -1,0 +1,43 @@
+<div class="app-page" id="page-boards">
+
+    <ol class="breadcrumb">
+        <li><a href="#">Agiler</a></li>
+        <li>Retro Boards</li>
+        <li class="active">All</li>
+    </ol>
+
+    <h1>Boards</h1>
+
+    <table id="boards-list" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Team</th>
+            <th>Sprint</th>
+            <th>Active</th>
+            <th>Limit</th>
+            <th>Stickers count</th>
+            <th>Owner</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        {% verbatim %}
+        <script id="boardsList" type="text/html">
+          <tr>
+            <td>{{ team.name }}&nbsp;({{ team.label }})</td>
+            <td>Sprint {{ number }}</td>
+            <td>{{ isActive }}</td>
+            <td>{{ voteLimit }}</td>
+            <td>{{ stickers.length }}</td>
+            <td>{{ owner }}</td>
+            <td>
+              <a href="#boards/{{ pk }}" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-share-alt"></span> Open
+              </a>
+            </td>
+          </tr>
+        </script>
+        {% endverbatim %}
+
+    </table>
+</div>

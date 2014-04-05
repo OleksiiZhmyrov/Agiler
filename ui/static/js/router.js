@@ -3,6 +3,7 @@ $(document).ready(function(){
         routes: {
             '': 'homePage',
             'boards/:pk': 'boardPage',
+            'boards': 'boardsPage',
             'settings/users': 'usersPage',
             'settings/teams': 'teamsPage',
             'settings/sprints': 'sprintsPage'
@@ -13,6 +14,10 @@ $(document).ready(function(){
         boardPage: function (pk) {
             hideAllPages();
             renderBoard(pk);
+        },
+        boardsPage: function () {
+            hideAllPages();
+            renderBoards();
         },
         usersPage: function () {
             hideAllPages();

@@ -57,6 +57,6 @@ var sprints = new SprintsView();
 
 function renderSprints(){
     sprints.fetch();
-    $('#sprints-list').html(sprints.render().el);
+    $('#sprints-list').append(sprints.render().el);
     $('#page-sprints').show();
 }

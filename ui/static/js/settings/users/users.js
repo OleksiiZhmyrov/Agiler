@@ -54,6 +54,6 @@ var users = new UsersView();
 
 function renderUsers(){
     users.fetch();
-    $('#users-list').html(users.render().el);
+    $('#users-list').append(users.render().el);
     $('#page-users').show();
 }

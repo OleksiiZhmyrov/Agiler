@@ -1,13 +1,13 @@
 <label for="retroboards" class="tree-label">Retro boards</label>
 <input type="checkbox" id="retroboards" />
-<ol id="boadrs-list">
+<ol id="menu-boadrs-list">
   {% verbatim %}
-  <script id="boardsList" type="text/html">
+  <script id="menuBoardsList" type="text/html">
     <li class="item">
       <a href="#boards/{{ pk }}">{{ team.name }} sprint {{ sprint }}<span class="badge pull-right">{{ stickers.length }}</span></a>
     </li>
   </script>
   {% endverbatim %}
 
-  <li><a href="#">View all</a></li>
+  <li><a href="#boards">View all</a></li>
 </ol>
