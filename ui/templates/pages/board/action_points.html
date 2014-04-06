@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-condensed">
+    <table id="stickers-action-points" class="table table-bordered table-condensed">
         <thead>
         <tr class="active">
             <th>Summary</th>
@@ -9,11 +9,13 @@
             <th></th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>Ask Marcin to be polite with Magda.</td>
-            <td>Status</td>
-            <td>Magda Zbyszek</td>
+        {% verbatim %}
+        <script id="pointsList" type="text/html">
+          {{#action_point}}
+          <tr>
+            <td>{{ summary }}</td>
+            <td>{{ status }}</td>
+            <td>{{ owner }}</td>
             <td>Team</td>
             <td>
                 <button type="button" class="btn btn-default btn-xs">
@@ -23,7 +25,9 @@
                     <span class="glyphicon glyphicon-remove"></span> Remove
                 </button>
             </td>
-        </tr>
-        </tbody>
+          </tr>
+          {{/action_point}}
+        </script>
+        {% endverbatim %}
     </table>
 </div>

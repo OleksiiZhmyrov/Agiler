@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-condensed">
+    <table id="stickers-need-to-change" class="table table-bordered table-condensed">
         <thead>
         <tr class="warning">
             <th>Summary</th>
@@ -8,11 +8,13 @@
             <th></th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>Marcin is lazy! Force him to wash his mug every morning.</td>
-            <td>Status</td>
-            <td>Magda Zbyszek</td>
+        {% verbatim %}
+        <script id="changeList" type="text/html">
+          {{#need_to_change}}
+          <tr>
+            <td>{{ summary }}</td>
+            <td>{{ status }}</td>
+            <td>{{ owner }}</td>
             <td>
                 <button type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span> Edit
@@ -21,7 +23,9 @@
                     <span class="glyphicon glyphicon-remove"></span> Remove
                 </button>
             </td>
-        </tr>
-        </tbody>
+          </tr>
+          {{/need_to_change}}
+        </script>
+        {% endverbatim %}
     </table>
 </div>

@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-bordered table-condensed">
+    <table id="stickers-was-good" class="table table-bordered table-condensed">
         <thead>
         <tr class="success">
             <th>Summary</th>
@@ -8,11 +8,13 @@
             <th></th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>This sprint was just amazing. Thanks everyone!</td>
-            <td>Status</td>
-            <td>Leszek Żukowski</td>
+        {% verbatim %}
+        <script id="goodList" type="text/html">
+          {{#was_good}}
+          <tr>
+            <td>{{ summary }}</td>
+            <td>{{ status }}</td>
+            <td>{{ owner }}</td>
             <td>
                 <button type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-pencil"></span> Edit
@@ -21,7 +23,9 @@
                     <span class="glyphicon glyphicon-remove"></span> Remove
                 </button>
             </td>
-        </tr>
-        </tbody>
+          </tr>
+          {{/was_good}}
+        </script>
+        {% endverbatim %}
     </table>
 </div>

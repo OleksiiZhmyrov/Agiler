@@ -52,7 +52,7 @@ class RetroBoardContainer(View):
         retroboard_container = RetroBoardContainer(
             was_good=stickers.filter(type=STICKER_TYPE_GOOD),
             need_to_change=stickers.filter(type=STICKER_TYPE_CHANGE),
-            action_point=stickers.filter(type=STICKER_TYPE_CHANGE),
+            action_point=stickers.filter(type=STICKER_TYPE_ACTION),
             is_active=board.isActive,
             vote_limit=board.voteLimit,
             team=board.team,

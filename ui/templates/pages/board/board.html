@@ -1,14 +1,19 @@
 <div class="app-page" id="board-page">
+  <div id="board-details">
+    {% verbatim %}
+    <script id="boardDetails" type="text/html">
 
     <ol class="breadcrumb">
         <li><a href="#">Agiler</a></li>
         <li><a href="#boards">Retro Boards</a></li>
-        <li>{team}</li>
-        <li class="active">{sprint number}</li>
+        <li>{{ team }}</li>
+        <li class="active">{{ sprint }} </li>
     </ol>
 
-    <h1><span class="glyphicon glyphicon-align-justify"></span> {team} &rarr; Sprint {sprint number}</h1>
-
+    <h1><span class="glyphicon glyphicon-align-justify"></span> {{ team }} &rarr; {{ sprint }}</h1>
+    </script>
+    {% endverbatim %}
+  </div>
     <hr>
 
     {% include "pages/board/was_good.html" %}
