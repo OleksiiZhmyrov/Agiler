@@ -2,7 +2,7 @@ from rest_framework import serializers
 from retro.models import Sticker, Board
 from model_choices import *
 from core.models import Sprint, Team
-from core.serializers import TeamSerializer
+from core.serializers import TeamSerializer, SprintSerializer
 
 
 class StickerSerializer(serializers.Serializer):
@@ -30,7 +30,8 @@ class BoardSerializer(serializers.Serializer):
     voteLimit = serializers.IntegerField(required=False, default=3)
     owner = serializers.Field(source='owner.username')
 
-    sprint = serializers.PrimaryKeyRelatedField(many=False, queryset=Sprint.objects.all())
+    # sprint = serializers.PrimaryKeyRelatedField(many=False, queryset=Sprint.objects.all())
+    sprint = serializers.Field(source='sprint.number')
     team = TeamSerializer(many=False)
 
     stickers = StickerSerializer(many=True, required=False)

@@ -1,8 +1,19 @@
-var Board = Backbone.Model.extend({});
+var Board = Backbone.Model.extend({
+    ToJSONWithExtraFields: function() {
+        var attr = _.clone(this.attributes);
+        if(attr.isActive) {
+            attr.isActiveColumn = { value: "active", class: "label label-success" };
+        } else {
+            attr.isActiveColumn = { value: "closed", class: "label label-default" };
+        }
+        return attr;
+    }
+
+});
 
 var BoardView = Backbone.View.extend({
     render: function () {
-        this.el = ich.boardsList(this.model.toJSON());
+        this.el = ich.boardsList(this.model.ToJSONWithExtraFields());
         return this;
     }
 });
