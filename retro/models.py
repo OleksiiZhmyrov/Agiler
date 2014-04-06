@@ -10,6 +10,7 @@ class Sticker(models.Model):
     owner = models.ForeignKey('auth.User', related_name='stickers')
     board = models.ForeignKey('retro.Board', related_name='stickers')
 
+    # TODO: fix team='team'
     def __unicode__(self):
         return '{summary} ({owner}, {team})'.format(summary=self.summary[:25], owner=self.owner, team='team')
 
