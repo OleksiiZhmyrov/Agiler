@@ -1,10 +1,12 @@
+from model_choices import STICKER_TYPE_GOOD, STICKER_TYPE_CHANGE, STICKER_TYPE_ACTION
 
-class RetroBoardContainer(object):
-    def __init__(self, was_good, need_to_change, action_point, is_active, vote_limit, team, sprint):
-        self.was_good = was_good
-        self.need_to_change = need_to_change
-        self.action_point = action_point
-        self.is_active = is_active
-        self.vote_limit = vote_limit
-        self.team = team
-        self.sprint = sprint
+
+class BoardContainer(object):
+    def __init__(self, board):
+        self.was_good = board.stickers.all().filter(type=STICKER_TYPE_GOOD)
+        self.need_to_change = board.stickers.all().filter(type=STICKER_TYPE_CHANGE)
+        self.action_point = board.stickers.all().filter(type=STICKER_TYPE_ACTION)
+        self.is_active = board.isActive
+        self.vote_limit = board.voteLimit
+        self.team = board.team
+        self.sprint = board.sprint

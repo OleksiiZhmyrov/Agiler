@@ -1,11 +1,8 @@
 from rest_framework import generics, permissions
-from retro.serializers import StickerSerializer, BoardSerializer, RetroBoardContainerSerializer
+from retro.serializers import StickerSerializer, BoardSerializer, BoardContainerSerializer
 from retro.models import Sticker, Board
 from core.permissions import IsOwnerOrReadOnly
-from django.views.generic import View
-from model_choices import *
-from django.http import HttpResponse
-from rest_framework.renderers import JSONRenderer
+from objects import BoardContainer
 
 
 class StickersList(generics.ListCreateAPIView):
@@ -44,20 +41,11 @@ class BoardDetails(generics.RetrieveUpdateDestroyAPIView):
         obj.owner = self.request.user
 
 
-class RetroBoardContainer(View):
-    @staticmethod
-    def get(request, pk):
-        board = Board.objects.get(pk=pk)
-        stickers = Sticker.objects.filter(board__pk=pk)
-        retroboard_container = RetroBoardContainer(
-            was_good=stickers.filter(type=STICKER_TYPE_GOOD),
-            need_to_change=stickers.filter(type=STICKER_TYPE_CHANGE),
-            action_point=stickers.filter(type=STICKER_TYPE_ACTION),
-            is_active=board.isActive,
-            vote_limit=board.voteLimit,
-            team=board.team,
-            sprint=board.sprint
-        )
-        serializer = RetroBoardContainerSerializer(retroboard_container)
-        json = JSONRenderer().render(serializer.data)
-        return HttpResponse(json, content_type="application/json")
+class BoardDetailsContainer(generics.RetrieveAPIView):
+    queryset = Board.objects.all()
+    serializer_class = BoardContainerSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_object(self, queryset=None):
+        board = generics.RetrieveAPIView.get_object(self, queryset)
+        return BoardContainer(board)
