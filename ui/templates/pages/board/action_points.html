@@ -1,7 +1,13 @@
-<div class="table-responsive">
-    <table id="stickers-action-points" class="table table-bordered table-condensed">
+<div class="panel panel-info">
+    <div class="panel-heading">Action Points</div>
+{#    <div class="panel-body">#}
+{#        <p>This section contains action point stickers.#}
+{#            After discussion scrum-master should add action points into this table and monitor their statuses.</p>#}
+{#    </div>#}
+
+    <table id="stickers-action-points" class="table table-condensed">
         <thead>
-        <tr class="active">
+        <tr>
             <th>Summary</th>
             <th>Status</th>
             <th>Owner</th>
@@ -10,6 +16,11 @@
         </tr>
         </thead>
         {% verbatim %}
+        <tr>
+            <td colspan="5" class="text-center">
+                No stickers here yet.
+            </td>
+        </tr>
         <script id="pointsList" type="text/html">
           {{#action_point}}
           <tr>

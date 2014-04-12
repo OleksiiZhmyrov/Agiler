@@ -1,7 +1,14 @@
-<div class="table-responsive">
-    <table id="stickers-need-to-change" class="table table-bordered table-condensed">
+<div class="panel panel-danger">
+    <div class="panel-heading">Need to Change</div>
+{#    <div class="panel-body">#}
+{#        <p>This section contains stickers related to what teem needs to change.#}
+{#            If something bothers you or if you have a proposition on what we have to improve or reject,#}
+{#            add sticker here!</p>#}
+{#    </div>#}
+
+    <table id="stickers-need-to-change" class="table table-condensed">
         <thead>
-        <tr class="warning">
+        <tr>
             <th>Summary</th>
             <th>Status</th>
             <th>Owner</th>
@@ -9,6 +16,11 @@
         </tr>
         </thead>
         {% verbatim %}
+        <tr>
+            <td colspan="4" class="text-center">
+                No stickers here yet.
+            </td>
+        </tr>
         <script id="changeList" type="text/html">
           {{#need_to_change}}
           <tr>

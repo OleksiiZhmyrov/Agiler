@@ -1,7 +1,13 @@
-<div class="table-responsive">
-    <table id="stickers-was-good" class="table table-bordered table-condensed">
+<div class="panel panel-success">
+    <div class="panel-heading">Was Good</div>
+{#    <div class="panel-body">#}
+{#        <p>This section contains stickers related to what was good in this sprint.#}
+{#            If you want to highlight positive moments, add sticker here!</p>#}
+{#    </div>#}
+
+    <table id="stickers-was-good" class="table table-condensed">
         <thead>
-        <tr class="success">
+        <tr>
             <th>Summary</th>
             <th>Status</th>
             <th>Owner</th>
@@ -9,6 +15,11 @@
         </tr>
         </thead>
         {% verbatim %}
+            <tr>
+                <td colspan="4" class="text-center">
+                    No stickers here yet.
+                </td>
+            </tr>
         <script id="goodList" type="text/html">
           {{#was_good}}
           <tr>
