@@ -4,6 +4,11 @@ var User = Backbone.Model.extend({
         if(attr.date_joined) {
             attr.date_joined = moment(attr.date_joined).format('DD-MM-YYYY');
         }
+        if(attr.is_active) {
+            attr.statusColumn = { value: "active", class: "label label-success" };
+        } else {
+            attr.statusColumn = { value: "inactive", class: "label label-danger" };
+        }
         return attr;
     }
 });

@@ -15,7 +15,7 @@
             <th>First name</th>
             <th>Last name</th>
             <th>Email address</th>
-            <th>Is active?</th>
+            <th>Status</th>
             <th>Date joined</th>
             <th>Boards count</th>
             <th>Stickers count</th>
@@ -28,7 +28,7 @@
             <td>{{ first_name }}</td>
             <td>{{ last_name }}</td>
             <td>{{ email }}</td>
-            <td>{{ is_active }}</td>
+            <td><span class="{{ statusColumn.class }}">{{ statusColumn.value }}</span></td>
             <td>{{ date_joined }}</td>
             <td>{{ boards.length }}</td>
             <td>{{ stickers.length }}</td>
