@@ -1,20 +1,8 @@
 <div class="panel panel-danger">
-    <div class="panel-heading">Need to Change</div>
-{#    <div class="panel-body">#}
-{#        <p>This section contains stickers related to what teem needs to change.#}
-{#            If something bothers you or if you have a proposition on what we have to improve or reject,#}
-{#            add sticker here!</p>#}
-{#    </div>#}
+    <div class="panel-heading"><span class="glyphicon glyphicon-warning-sign"></span> Need to Change</div>
 
     <table id="stickers-need-to-change" class="table table-condensed">
-        <thead>
-        <tr>
-            <th>Summary</th>
-            <th>Status</th>
-            <th>Owner</th>
-            <th></th>
-        </tr>
-        </thead>
+        {% include "pages/board/table_header.html" %}
         {% verbatim %}
         <tr>
             <td colspan="4" class="text-center">

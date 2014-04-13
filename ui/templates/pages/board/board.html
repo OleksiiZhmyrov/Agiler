@@ -1,7 +1,7 @@
 <div class="app-page" id="board-page">
-  <div id="board-details">
-    {% verbatim %}
-    <script id="boardDetails" type="text/html">
+    <div id="board-details">
+        {% verbatim %}
+        <script id="boardDetails" type="text/html">
 
     <ol class="breadcrumb">
         <li><a href="#">Agiler</a></li>
@@ -10,11 +10,14 @@
         <li class="active">{{ sprint }} </li>
     </ol>
 
-    <h1><span class="glyphicon glyphicon-align-justify"></span> {{ team }} &rarr; {{ sprint }}</h1>
+    <div class="page-header">
+        <h1><span class="glyphicon glyphicon-list-alt"></span>
+            Sprint {{ sprint }} <small>{{ team }}</small></h1>
+    </div>
+
     </script>
-    {% endverbatim %}
-  </div>
-    <hr>
+        {% endverbatim %}
+    </div>
 
     {% include "pages/board/was_good.html" %}
     {% include "pages/board/need_to_change.html" %}

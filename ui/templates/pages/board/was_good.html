@@ -1,19 +1,8 @@
 <div class="panel panel-success">
-    <div class="panel-heading">Was Good</div>
-{#    <div class="panel-body">#}
-{#        <p>This section contains stickers related to what was good in this sprint.#}
-{#            If you want to highlight positive moments, add sticker here!</p>#}
-{#    </div>#}
+    <div class="panel-heading"><span class="glyphicon glyphicon-thumbs-up"></span> Was Good</div>
 
     <table id="stickers-was-good" class="table table-condensed">
-        <thead>
-        <tr>
-            <th>Summary</th>
-            <th>Status</th>
-            <th>Owner</th>
-            <th></th>
-        </tr>
-        </thead>
+        {% include "pages/board/table_header.html" %}
         {% verbatim %}
             <tr>
                 <td colspan="4" class="text-center">

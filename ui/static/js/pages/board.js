@@ -25,15 +25,22 @@ var BoardContainerView = Backbone.View.extend({
     },
 
     render: function () {
+        clearBoardTables();
         $('#board-details').html(ich.boardDetails(this.boardContainer.toJSON()));
-        $('#stickers-was-good').append(ich.goodList({was_good: this.boardContainer.toJSON().was_good}));
-        $('#stickers-need-to-change').append(ich.changeList({need_to_change: this.boardContainer.toJSON().need_to_change}));
-        $('#stickers-action-points').append(ich.pointsList({action_point: this.boardContainer.toJSON().action_point}));
+        $('table#stickers-was-good').append(ich.goodList({was_good: this.boardContainer.toJSON().was_good}));
+        $('table#stickers-need-to-change').append(ich.changeList({need_to_change: this.boardContainer.toJSON().need_to_change}));
+        $('table#stickers-action-points').append(ich.pointsList({action_point: this.boardContainer.toJSON().action_point}));
     }
 });
 
-function renderBoard(pk){
+function renderBoard(pk) {
     var boardContainer = new BoardContainerView({pk:pk});
     boardContainer.fetch();
     $('#board-page').show();
+}
+
+function clearBoardTables() {
+    $('table#stickers-was-good tbody').empty();
+    $('table#stickers-need-to-change tbody').empty();
+    $('table#stickers-action-points tbody').empty();
 }
