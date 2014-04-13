@@ -10,12 +10,14 @@ class Sticker(models.Model):
     owner = models.ForeignKey('auth.User', related_name='stickers')
     board = models.ForeignKey('retro.Board', related_name='stickers')
 
-    # TODO: fix team='team'
     def __unicode__(self):
-        return '{summary} ({owner}, {team})'.format(summary=self.summary[:25], owner=self.owner, team='team')
+        return '{summary} ({owner}, {team}, Sprint {sprint})'.format(summary=self.summary[:25],
+                                                                     owner=self.owner,
+                                                                     team=self.board.team.name,
+                                                                     sprint=self.board.sprint.number)
 
     class Meta:
-        ordering = ('created',)
+        ordering = ('-created',)
 
 
 class Board(models.Model):
