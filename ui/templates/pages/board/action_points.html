@@ -1,36 +1,45 @@
 <div class="panel panel-info">
-    <div class="panel-heading"><span class="glyphicon glyphicon-pushpin"></span> Action Points</div>
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-pushpin"></span>
+        &nbsp;Action Points
+        <span class="pull-right">
+            <button type="button" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-plus"></span>
+                &nbsp;Add
+            </button>
+        </span>
+    </div>
 
-    <table id="stickers-action-points" class="table table-condensed">
+    <table id="stickers-action-points" class="table table-condensed table-stickers">
         <thead>
         <tr>
-            <th>Summary</th>
-            <th>Status</th>
-            <th>Owner</th>
-            <th>Responsible</th>
-            <th></th>
+            <th style="width: 50%;">Summary</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 20%;">Owner</th>
+            <th style="width: 15%;">Responsible</th>
+            <th style="width: 5%;"></th>
         </tr>
         </thead>
-        {% verbatim %}
-        <tr>
+        <tbody>
+        <tr class="message">
             <td colspan="5" class="text-center">
                 No stickers here yet.
             </td>
         </tr>
+        </tbody>
+        {% verbatim %}
         <script id="pointsList" type="text/html">
           {{#action_point}}
-          <tr>
+          <tr calss="item">
             <td>{{ summary }}</td>
             <td>{{ status }}</td>
             <td>{{ owner }}</td>
-            <td>Team</td>
+            <td>Responsible</td>
             <td>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Edit
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Remove
-                </button>
+              <span class="pull-right">
+                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                <span class="glyphicon glyphicon-remove"></span>&nbsp;
+              </span>
             </td>
           </tr>
           {{/action_point}}

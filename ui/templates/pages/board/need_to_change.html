@@ -1,27 +1,44 @@
 <div class="panel panel-danger">
-    <div class="panel-heading"><span class="glyphicon glyphicon-warning-sign"></span> Need to Change</div>
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        &nbsp;Need to Change
+        <span class="pull-right">
+            <button type="button" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-plus"></span>
+                &nbsp;Add
+            </button>
+        </span>
+    </div>
 
-    <table id="stickers-need-to-change" class="table table-condensed">
-        {% include "pages/board/table_header.html" %}
-        {% verbatim %}
+    <table id="stickers-need-to-change" class="table table-condensed table-stickers">
+        <thead>
         <tr>
+            <th style="width: 50%;">Summary</th>
+            <th style="width: 10%;">Status</th>
+            <th style="width: 20%;">Owner</th>
+            <th style="width: 20%;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="message">
             <td colspan="4" class="text-center">
                 No stickers here yet.
             </td>
         </tr>
+        </tbody>
+
+        {% verbatim %}
         <script id="changeList" type="text/html">
           {{#need_to_change}}
-          <tr>
+          <tr class="item">
             <td>{{ summary }}</td>
             <td>{{ status }}</td>
             <td>{{ owner }}</td>
             <td>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Edit
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Remove
-                </button>
+              <span class="pull-right">
+                <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                <span class="glyphicon glyphicon-remove"></span>&nbsp;
+              </span>
             </td>
           </tr>
           {{/need_to_change}}

@@ -3,7 +3,7 @@ var BoardContainer = Backbone.Model.extend({
     urlRoot: '/api/ws100/retro/boards/',
 
     url: function() {
-        return this.urlRoot +this.id +'/';
+        return this.urlRoot + this.id +'/';
     }
 });
 
@@ -26,10 +26,21 @@ var BoardContainerView = Backbone.View.extend({
 
     render: function () {
         clearBoardTables();
-        $('#board-details').html(ich.boardDetails(this.boardContainer.toJSON()));
-        $('table#stickers-was-good').append(ich.goodList({was_good: this.boardContainer.toJSON().was_good}));
-        $('table#stickers-need-to-change').append(ich.changeList({need_to_change: this.boardContainer.toJSON().need_to_change}));
-        $('table#stickers-action-points').append(ich.pointsList({action_point: this.boardContainer.toJSON().action_point}));
+        var json = this.boardContainer.toJSON();
+        $('#board-details').html(ich.boardDetails(json));
+
+        if (json.was_good.length != 0) {
+            $('table#stickers-was-good tbody tr.message').hide();
+            $('table#stickers-was-good').append(ich.goodList({was_good: json.was_good}));
+        }
+        if (json.need_to_change.length != 0) {
+            $('table#stickers-need-to-change tbody tr.message').hide();
+            $('table#stickers-need-to-change').append(ich.changeList({need_to_change: json.need_to_change}));
+        }
+        if (json.action_point.length != 0) {
+            $('table#stickers-action-points tbody tr.message').hide();
+            $('table#stickers-action-points').append(ich.pointsList({action_point: json.action_point}));
+        }
     }
 });
 
@@ -40,7 +51,6 @@ function renderBoard(pk) {
 }
 
 function clearBoardTables() {
-    $('table#stickers-was-good tbody').empty();
-    $('table#stickers-need-to-change tbody').empty();
-    $('table#stickers-action-points tbody').empty();
+    $('table.table-stickers tbody tr.item').remove();
+    $('table.table-stickers tbody tr.message').show();
 }
