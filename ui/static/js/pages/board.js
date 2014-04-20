@@ -4,18 +4,27 @@ var BoardContainer = Backbone.Model.extend({
 
     url: function() {
         return this.urlRoot + this.id +'/';
+    },
+
+    ToJSONWithFormattedDate: function() {
+        var attr = _.clone(this.attributes);
+        if(attr.sprint.start_date) {
+            attr.start_date = moment(attr.sprint.start_date).format('DD-MM-YYYY');
+        }
+        if(attr.sprint.end_date) {
+            attr.end_date = moment(attr.sprint.finish_date).format('DD-MM-YYYY');
+        }
+        return attr;
     }
 });
 
 var BoardContainerView = Backbone.View.extend({
     tagName: 'tbody',
 
-
     initialize: function(opts) {
         this.boardContainer = new BoardContainer({id:opts.pk});
         this.boardContainer.bind('sync', this.render, this);
     },
-
     fetch: function() {
         this.boardContainer.fetch({
             error: (function (e) {
@@ -23,10 +32,9 @@ var BoardContainerView = Backbone.View.extend({
             })
         });
     },
-
     render: function () {
         clearBoardTables();
-        var json = this.boardContainer.toJSON();
+        var json = this.boardContainer.ToJSONWithFormattedDate();
         $('#board-details').html(ich.boardDetails(json));
 
         if (json.was_good.length != 0) {

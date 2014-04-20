@@ -13,15 +13,16 @@
     <table id="stickers-need-to-change" class="table table-condensed table-stickers">
         <thead>
         <tr>
+            <th style="width: 5%;">Rating</th>
             <th style="width: 50%;">Summary</th>
             <th style="width: 10%;">Status</th>
             <th style="width: 20%;">Owner</th>
-            <th style="width: 20%;"></th>
+            <th style="width: 15%;"></th>
         </tr>
         </thead>
         <tbody>
         <tr class="message">
-            <td colspan="4" class="text-center">
+            <td colspan="5" class="text-center">
                 No stickers here yet.
             </td>
         </tr>
@@ -31,6 +32,7 @@
         <script id="changeList" type="text/html">
           {{#need_to_change}}
           <tr class="item">
+            <td>Rating</td>
             <td>{{ summary }}</td>
             <td>{{ status }}</td>
             <td>{{ owner }}</td>

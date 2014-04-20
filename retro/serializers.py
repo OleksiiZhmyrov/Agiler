@@ -1,7 +1,8 @@
 from rest_framework import serializers
+
 from retro.models import Sticker, Board
 from model_choices import *
-from core.serializers import TeamSerializer
+from core.serializers import TeamSerializer, SprintSerializer
 from retro.objects import BoardContainer
 
 
@@ -29,11 +30,8 @@ class BoardSerializer(serializers.Serializer):
     isActive = serializers.BooleanField(required=False, default=False)
     voteLimit = serializers.IntegerField(required=False, default=3)
     owner = serializers.Field(source='owner.username')
-
-    # sprint = serializers.PrimaryKeyRelatedField(many=False, queryset=Sprint.objects.all())
     sprint = serializers.Field(source='sprint.number')
     team = TeamSerializer(many=False)
-
     stickers = StickerSerializer(many=True, required=False)
 
     def restore_object(self, attrs, instance=None):
@@ -55,7 +53,7 @@ class BoardContainerSerializer(serializers.Serializer):
     is_active = serializers.BooleanField(required=False, default=False)
     vote_limit = serializers.IntegerField(required=False, default=3)
     team = serializers.Field(source='team.name')
-    sprint = serializers.Field(source='sprint.number')
+    sprint = SprintSerializer(many=False)
 
     def restore_object(self, attrs, instance=None):
         if instance:
