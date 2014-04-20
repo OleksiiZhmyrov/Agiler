@@ -6,6 +6,7 @@ class Sticker(models.Model):
     created = models.DateTimeField('Creation Date', auto_now_add=True)
     summary = models.CharField('Description', max_length=1024, null=True, blank=True)
     type = models.CharField('type', max_length=1, choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_CHANGE)
+    rating = models.PositiveIntegerField('Rating', default=0)
     advanced_status = models.ForeignKey('retro.StickerAdvancedStatus', related_name='advanced_status')
     owner = models.ForeignKey('auth.User', related_name='stickers')
     board = models.ForeignKey('retro.Board', related_name='stickers')

@@ -10,6 +10,7 @@ class StickerSerializer(serializers.Serializer):
     pk = serializers.Field()
     summary = serializers.CharField(required=True, max_length=1024)
     type = serializers.ChoiceField(choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_GOOD)
+    rating = serializers.IntegerField(required=False, default=0)
     advanced_status = serializers.Field(source='advanced_status.name')
     owner = serializers.Field(source='owner.username')
 
@@ -22,7 +23,7 @@ class StickerSerializer(serializers.Serializer):
 
     class Meta:
         model = Sticker
-        fields = ('pk', 'summary', 'advanced_status', 'type', 'owner',)
+        fields = ('pk', 'summary', 'advanced_status', 'type', 'owner', 'rating',)
 
 
 class BoardSerializer(serializers.Serializer):
