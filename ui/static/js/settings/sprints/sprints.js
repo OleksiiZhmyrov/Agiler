@@ -5,7 +5,7 @@ var Sprint = Backbone.Model.extend({
             attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
         }
         if(attr.finish_date) {
-            attr.finish_date = moment(attr.finish_date).format('DD-MM-YYYY');
+            attr.end_date = moment(attr.finish_date).format('DD-MM-YYYY');
         }
         return attr;
     }

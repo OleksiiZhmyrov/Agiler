@@ -14,8 +14,8 @@ class Team(models.Model):
 
 class Sprint(models.Model):
     number = models.IntegerField('Number')
-    start_date = models.DateTimeField('Start Date', blank=True, null=True)
-    finish_date = models.DateTimeField('Finish Date', blank=True, null=True)
+    start_date = models.DateField('Start Date', blank=True, null=True)
+    end_date = models.DateField('Finish Date', blank=True, null=True)
 
     def __unicode__(self):
         return 'Sprint {number}'.format(number=self.number)

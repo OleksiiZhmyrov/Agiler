@@ -36,7 +36,7 @@ class SprintSerializer(serializers.Serializer):
     pk = serializers.Field()
     number = serializers.IntegerField(required=True)
     start_date = serializers.DateTimeField()
-    finish_date = serializers.DateTimeField()
+    end_date = serializers.DateTimeField()
 
     boards = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
@@ -49,7 +49,7 @@ class SprintSerializer(serializers.Serializer):
 
     class Meta:
         model = Sprint
-        fields = ('pk', 'number', 'start_date', 'finish_date', 'boards',)
+        fields = ('pk', 'number', 'start_date', 'end_date', 'boards',)
 
 
 class ApplicationSettingsSerializer(serializers.Serializer):
