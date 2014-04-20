@@ -6,7 +6,7 @@ class Sticker(models.Model):
     created = models.DateTimeField('Creation Date', auto_now_add=True)
     summary = models.CharField('Description', max_length=1024, null=True, blank=True)
     type = models.CharField('type', max_length=1, choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_CHANGE)
-    status = models.CharField('status', max_length=1, choices=STICKER_STATUS_CHOICES, default=STICKER_STATUS_CREATED)
+    advanced_status = models.ForeignKey('retro.StickerAdvancedStatus', related_name='advanced_status')
     owner = models.ForeignKey('auth.User', related_name='stickers')
     board = models.ForeignKey('retro.Board', related_name='stickers')
 
@@ -33,3 +33,15 @@ class Board(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+
+class StickerAdvancedStatus(models.Model):
+    name = models.CharField('Name', max_length=32)
+    description = models.CharField('Description', max_length=64)
+    priority = models.PositiveSmallIntegerField('Priority', unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('priority',)

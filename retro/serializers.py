@@ -10,7 +10,7 @@ class StickerSerializer(serializers.Serializer):
     pk = serializers.Field()
     summary = serializers.CharField(required=True, max_length=1024)
     type = serializers.ChoiceField(choices=STICKER_TYPE_CHOICES, default=STICKER_TYPE_GOOD)
-    status = serializers.ChoiceField(choices=STICKER_STATUS_CHOICES, default=STICKER_STATUS_CREATED)
+    advanced_status = serializers.Field(source='advanced_status.name')
     owner = serializers.Field(source='owner.username')
 
     def restore_object(self, attrs, instance=None):
@@ -22,7 +22,7 @@ class StickerSerializer(serializers.Serializer):
 
     class Meta:
         model = Sticker
-        fields = ('pk', 'summary', 'status', 'type', 'owner',)
+        fields = ('pk', 'summary', 'advanced_status', 'type', 'owner',)
 
 
 class BoardSerializer(serializers.Serializer):
