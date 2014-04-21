@@ -6,7 +6,8 @@ $(document).ready(function(){
             'boards': 'boardsPage',
             'settings/users': 'usersPage',
             'settings/teams': 'teamsPage',
-            'settings/sprints': 'sprintsPage'
+            'settings/sprints': 'sprintsPage',
+            '*notFound': 'notFound'
         },
         homePage: function () {
             hideAllPages();
@@ -30,6 +31,10 @@ $(document).ready(function(){
         sprintsPage: function () {
             hideAllPages();
             renderSprints();
+        },
+        notFound: function () {
+            hideAllPages();
+            display_404();
         }
     });
     var appRouter = new SettingsRouter();
