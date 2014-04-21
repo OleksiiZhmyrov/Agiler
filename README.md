@@ -8,7 +8,7 @@ Django based application to simplify some Scrum routines
 
 Create SQLite3 database file by running the following command:
 ```bash
-$ python manage.py sync.db --noinput
+$ python manage.py syncdb --noinput
 ```
 Load initial data into new database:
 ```bash
