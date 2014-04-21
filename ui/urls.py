@@ -1,7 +1,10 @@
 from django.conf.urls import patterns, url
-from ui import views
-from django.views.generic import TemplateView
 
-urlpatterns = patterns('',
-                       url(r'^ui/$', views.render_template),
+from ui import views
+
+
+urlpatterns = patterns(
+    '',
+    url(r'^$', views.redirect_home),
+    url(r'^agiler/$', views.render_template),
 )
