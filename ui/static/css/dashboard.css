@@ -77,3 +77,7 @@ div.logo {
     width: 217px;
     height: 75px;
 }
+
+div .app-page {
+    display: none;
+}
