@@ -33,7 +33,6 @@ $(document).ready(function(){
             renderSprints();
         },
         notFound: function () {
-            hideAllPages();
             display_404();
         }
     });

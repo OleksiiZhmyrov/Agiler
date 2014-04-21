@@ -27,9 +27,7 @@ var BoardContainerView = Backbone.View.extend({
     },
     fetch: function() {
         this.boardContainer.fetch({
-            error: (function (e) {
-                alert(' Service request failure: ' + e);
-            })
+            error: onErrorHandler
         });
     },
     render: function () {
