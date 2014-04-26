@@ -1,0 +1,71 @@
+[
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {
+            "domain": "127.0.0.1:8000",
+            "name": "localhost"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "retro.stickeradvancedstatus",
+        "fields": {
+            "priority": 1,
+            "name": "Created",
+            "description": "This item has been created in the system"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "retro.stickeradvancedstatus",
+        "fields": {
+            "priority": 2,
+            "name": "In Progress",
+            "description": "This item has been taken to execution"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "retro.stickeradvancedstatus",
+        "fields": {
+            "priority": 3,
+            "name": "Blocked",
+            "description": "This item has been blocked"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "retro.stickeradvancedstatus",
+        "fields": {
+            "priority": 4,
+            "name": "Declined",
+            "description": "This item has been declined"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "retro.stickeradvancedstatus",
+        "fields": {
+            "priority": 5,
+            "name": "Completed",
+            "description": "This item has been completed"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "flatpages.flatpage",
+        "fields": {
+            "registration_required": false,
+            "title": "Example of Django Flat Page",
+            "url": "/agiler/help/example",
+            "template_name": "",
+            "sites": [
+                2,
+                1
+            ],
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "enable_comments": false
+        }
+    }
+]

@@ -1,210 +1,165 @@
 [
     {
-    "pk": 1,
-    "model": "retro.stickeradvancedstatus",
-    "fields": {
-        "priority": 1,
-        "name": "Created",
-        "description": "This item has been created in the system"
+        "pk": 1,
+        "model": "retro.board",
+        "fields": {
+            "created": "2014-04-20T11:01:12.769Z",
+            "voteLimit": 3,
+            "team": 1,
+            "owner": 3,
+            "sprint": 3,
+            "isActive": false
+        }
+    },
+    {
+        "pk": 2,
+        "model": "retro.board",
+        "fields": {
+            "created": "2014-04-20T11:01:24.686Z",
+            "voteLimit": 3,
+            "team": 2,
+            "owner": 2,
+            "sprint": 3,
+            "isActive": false
+        }
+    },
+    {
+        "pk": 3,
+        "model": "retro.board",
+        "fields": {
+            "created": "2014-04-20T11:01:34.869Z",
+            "voteLimit": 3,
+            "team": 4,
+            "owner": 4,
+            "sprint": 3,
+            "isActive": false
+        }
+    },
+    {
+        "pk": 4,
+        "model": "retro.board",
+        "fields": {
+            "created": "2014-04-20T11:01:46.448Z",
+            "voteLimit": 3,
+            "team": 1,
+            "owner": 3,
+            "sprint": 1,
+            "isActive": true
+        }
+    },
+    {
+        "pk": 5,
+        "model": "retro.board",
+        "fields": {
+            "created": "2014-04-20T11:01:55.519Z",
+            "voteLimit": 3,
+            "team": 2,
+            "owner": 2,
+            "sprint": 1,
+            "isActive": false
+        }
+    },
+    {
+        "pk": 6,
+        "model": "retro.board",
+        "fields": {
+            "created": "2014-04-20T11:02:09.697Z",
+            "voteLimit": 5,
+            "team": 4,
+            "owner": 4,
+            "sprint": 1,
+            "isActive": true
+        }
+    },
+    {
+        "pk": 1,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:32:03.383Z",
+            "summary": "Ask John to wash his mug at least once a day. It's so disgusting!",
+            "board": 1,
+            "owner": 3,
+            "type": "C",
+            "advanced_status": 1,
+            "rating": 0
+        }
+    },
+    {
+        "pk": 2,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:32:44.355Z",
+            "summary": "We probably need a teambuilding. Thoughts?",
+            "board": 1,
+            "owner": 2,
+            "type": "C",
+            "advanced_status": 1,
+            "rating": 0
+        }
+    },
+    {
+        "pk": 3,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:33:50.822Z",
+            "summary": "16GB of RAM for developers. PCs are too slow!",
+            "board": 1,
+            "owner": 4,
+            "type": "C",
+            "advanced_status": 1,
+            "rating": 0
+        }
+    },
+    {
+        "pk": 4,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:34:32.136Z",
+            "summary": "Flowers in the area are awesome! Thanks Peter!",
+            "board": 1,
+            "owner": 3,
+            "type": "G",
+            "advanced_status": 1,
+            "rating": 0
+        }
+    },
+    {
+        "pk": 5,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:35:14.055Z",
+            "summary": "We've bought corporate license for our IDEs",
+            "board": 1,
+            "owner": 4,
+            "type": "G",
+            "advanced_status": 1,
+            "rating": 0
+        }
+    },
+    {
+        "pk": 6,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:35:52.115Z",
+            "summary": "Ask everyone to be quiet during working hours",
+            "board": 1,
+            "owner": 2,
+            "type": "A",
+            "advanced_status": 1,
+            "rating": 0
+        }
+    },
+    {
+        "pk": 7,
+        "model": "retro.sticker",
+        "fields": {
+            "created": "2014-04-20T11:36:16.623Z",
+            "summary": "Think about teambuilding",
+            "board": 1,
+            "owner": 3,
+            "type": "A",
+            "advanced_status": 1,
+            "rating": 0
+        }
     }
-},
-{
-    "pk": 2,
-    "model": "retro.stickeradvancedstatus",
-    "fields": {
-        "priority": 2,
-        "name": "In Progress",
-        "description": "This item has been taken to execution"
-    }
-},
-{
-    "pk": 3,
-    "model": "retro.stickeradvancedstatus",
-    "fields": {
-        "priority": 3,
-        "name": "Blocked",
-        "description": "This item has been blocked"
-    }
-},
-{
-    "pk": 4,
-    "model": "retro.stickeradvancedstatus",
-    "fields": {
-        "priority": 4,
-        "name": "Declined",
-        "description": "This item has been declined"
-    }
-},
-{
-    "pk": 5,
-    "model": "retro.stickeradvancedstatus",
-    "fields": {
-        "priority": 5,
-        "name": "Completed",
-        "description": "This item has been completed"
-    }
-},
-{
-    "pk": 1, 
-    "model": "retro.board", 
-    "fields": {
-        "created": "2014-04-20T11:01:12.769Z", 
-        "voteLimit": 3, 
-        "team": 1, 
-        "owner": 3, 
-        "sprint": 3, 
-        "isActive": false
-    }
-},
-{
-    "pk": 2, 
-    "model": "retro.board", 
-    "fields": {
-        "created": "2014-04-20T11:01:24.686Z", 
-        "voteLimit": 3, 
-        "team": 2, 
-        "owner": 2, 
-        "sprint": 3, 
-        "isActive": false
-    }
-},
-{
-    "pk": 3, 
-    "model": "retro.board", 
-    "fields": {
-        "created": "2014-04-20T11:01:34.869Z", 
-        "voteLimit": 3, 
-        "team": 4, 
-        "owner": 4, 
-        "sprint": 3, 
-        "isActive": false
-    }
-},
-{
-    "pk": 4, 
-    "model": "retro.board", 
-    "fields": {
-        "created": "2014-04-20T11:01:46.448Z", 
-        "voteLimit": 3, 
-        "team": 1, 
-        "owner": 3, 
-        "sprint": 1, 
-        "isActive": true
-    }
-},
-{
-    "pk": 5, 
-    "model": "retro.board", 
-    "fields": {
-        "created": "2014-04-20T11:01:55.519Z", 
-        "voteLimit": 3, 
-        "team": 2, 
-        "owner": 2, 
-        "sprint": 1, 
-        "isActive": false
-    }
-},
-{
-    "pk": 6, 
-    "model": "retro.board", 
-    "fields": {
-        "created": "2014-04-20T11:02:09.697Z", 
-        "voteLimit": 5, 
-        "team": 4, 
-        "owner": 4, 
-        "sprint": 1, 
-        "isActive": true
-    }
-},
-{
-    "pk": 1,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:32:03.383Z",
-        "summary": "Ask John to wash his mug at least once a day. It's so disgusting!",
-        "board": 1,
-        "owner": 3,
-        "type": "C",
-        "advanced_status": 1,
-        "rating": 0
-    }
-},
-{
-    "pk": 2,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:32:44.355Z",
-        "summary": "We probably need a teambuilding. Thoughts?",
-        "board": 1,
-        "owner": 2,
-        "type": "C",
-        "advanced_status": 1,
-        "rating": 0
-    }
-},
-{
-    "pk": 3,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:33:50.822Z",
-        "summary": "16GB of RAM for developers. PCs are too slow!",
-        "board": 1,
-        "owner": 4,
-        "type": "C",
-        "advanced_status": 1,
-        "rating": 0
-    }
-},
-{
-    "pk": 4,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:34:32.136Z",
-        "summary": "Flowers in the area are awesome! Thanks Peter!",
-        "board": 1,
-        "owner": 3,
-        "type": "G",
-        "advanced_status": 1,
-        "rating": 0
-    }
-},
-{
-    "pk": 5,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:35:14.055Z",
-        "summary": "We've bought corporate license for our IDEs",
-        "board": 1,
-        "owner": 4,
-        "type": "G",
-        "advanced_status": 1,
-        "rating": 0
-    }
-},
-{
-    "pk": 6,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:35:52.115Z",
-        "summary": "Ask everyone to be quiet during working hours",
-        "board": 1,
-        "owner": 2,
-        "type": "A",
-        "advanced_status": 1,
-        "rating": 0
-    }
-},
-{
-    "pk": 7,
-    "model": "retro.sticker",
-    "fields": {
-        "created": "2014-04-20T11:36:16.623Z",
-        "summary": "Think about teambuilding",
-        "board": 1,
-        "owner": 3,
-        "type": "A",
-        "advanced_status": 1,
-        "rating": 0
-    }
-}
 ]

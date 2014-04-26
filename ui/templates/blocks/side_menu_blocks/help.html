@@ -1,0 +1,15 @@
+<label for="help" class="tree-label">Help Articles</label>
+<input type="checkbox" id="help"/>
+
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+
+<ol id="help-list">
+
+    {% for page in flatpages %}
+        <li class="item"><a href="{{ page.url }}" target="_blank">{{ page.title | truncatechars:25 }}</a></li>
+    {% endfor %}
+
+</ol>
+
+

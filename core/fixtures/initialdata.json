@@ -1,61 +1,61 @@
 [
-{
-    "pk": 1, 
-    "model": "core.team", 
-    "fields": {
-        "name": "Alpha", 
-        "label": "&alpha;"
+    {
+        "pk": 1,
+        "model": "core.team",
+        "fields": {
+            "name": "Alpha",
+            "label": "&alpha;"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "core.team",
+        "fields": {
+            "name": "Beta",
+            "label": "&beta;"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "core.team",
+        "fields": {
+            "name": "Gamma",
+            "label": "&gamma;"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "core.team",
+        "fields": {
+            "name": "Delta",
+            "label": "&delta;"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "core.sprint",
+        "fields": {
+            "number": 1,
+            "end_date": "2014-04-14",
+            "start_date": "2014-04-01"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "core.sprint",
+        "fields": {
+            "number": 2,
+            "end_date": "2014-04-28",
+            "start_date": "2014-04-15"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "core.sprint",
+        "fields": {
+            "number": 0,
+            "end_date": "2014-03-31",
+            "start_date": "2014-03-18"
+        }
     }
-},
-{
-    "pk": 2, 
-    "model": "core.team", 
-    "fields": {
-        "name": "Beta", 
-        "label": "&beta;"
-    }
-},
-{
-    "pk": 3, 
-    "model": "core.team", 
-    "fields": {
-        "name": "Gamma", 
-        "label": "&gamma;"
-    }
-},
-{
-    "pk": 4, 
-    "model": "core.team", 
-    "fields": {
-        "name": "Delta", 
-        "label": "&delta;"
-    }
-},
-{
-    "pk": 1, 
-    "model": "core.sprint", 
-    "fields": {
-        "number": 1, 
-        "end_date": "2014-04-14", 
-        "start_date": "2014-04-01"
-    }
-},
-{
-    "pk": 2, 
-    "model": "core.sprint", 
-    "fields": {
-        "number": 2, 
-        "end_date": "2014-04-28", 
-        "start_date": "2014-04-15"
-    }
-},
-{
-    "pk": 3, 
-    "model": "core.sprint", 
-    "fields": {
-        "number": 0, 
-        "end_date": "2014-03-31", 
-        "start_date": "2014-03-18"
-    }
-}
 ]
