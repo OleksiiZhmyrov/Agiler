@@ -9,7 +9,7 @@ var MenuBoardsView = Backbone.View.extend({
     tagName: 'li',
     className: 'item',
 
-    initialize: function() {
+    initialize: function () {
         this.boards = new BoardCollection();
         this.boards.bind('all', this.render, this);
         this.boards.fetch({
@@ -31,6 +31,6 @@ var MenuBoardsView = Backbone.View.extend({
 
 var menuBoardsView = new MenuBoardsView();
 
-$(function(){
+$(function () {
     $('#menu-boadrs-list').prepend(menuBoardsView.render().el);
 });

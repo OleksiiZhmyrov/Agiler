@@ -1,17 +1,16 @@
-
 var BoardContainer = Backbone.Model.extend({
     urlRoot: '/api/ws100/retro/boards/',
 
-    url: function() {
-        return this.urlRoot + this.id +'/';
+    url: function () {
+        return this.urlRoot + this.id + '/';
     },
 
-    ToJSONWithFormattedDate: function() {
+    ToJSONWithFormattedDate: function () {
         var attr = _.clone(this.attributes);
-        if(attr.sprint.start_date) {
+        if (attr.sprint.start_date) {
             attr.start_date = moment(attr.sprint.start_date).format('DD-MM-YYYY');
         }
-        if(attr.sprint.end_date) {
+        if (attr.sprint.end_date) {
             attr.end_date = moment(attr.sprint.finish_date).format('DD-MM-YYYY');
         }
         return attr;
@@ -21,11 +20,11 @@ var BoardContainer = Backbone.Model.extend({
 var BoardContainerView = Backbone.View.extend({
     tagName: 'tbody',
 
-    initialize: function(opts) {
-        this.boardContainer = new BoardContainer({id:opts.pk});
+    initialize: function (opts) {
+        this.boardContainer = new BoardContainer({id: opts.pk});
         this.boardContainer.bind('sync', this.render, this);
     },
-    fetch: function() {
+    fetch: function () {
         this.boardContainer.fetch({
             error: onErrorHandler
         });
@@ -51,7 +50,7 @@ var BoardContainerView = Backbone.View.extend({
 });
 
 function renderBoard(pk) {
-    var boardContainer = new BoardContainerView({pk:pk});
+    var boardContainer = new BoardContainerView({pk: pk});
     boardContainer.fetch();
     $('#board-page').show();
 }

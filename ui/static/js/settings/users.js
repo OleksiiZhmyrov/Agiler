@@ -1,18 +1,3 @@
-var User = Backbone.Model.extend({
-    ToJSONwithFormattedDate: function() {
-        var attr = _.clone(this.attributes);
-        if(attr.date_joined) {
-            attr.date_joined = moment(attr.date_joined).format('DD-MM-YYYY');
-        }
-        if(attr.is_active) {
-            attr.statusColumn = { value: "active", class: "label label-success" };
-        } else {
-            attr.statusColumn = { value: "inactive", class: "label label-danger" };
-        }
-        return attr;
-    }
-});
-
 var UserView = Backbone.View.extend({
     render: function () {
         this.el = ich.usersList(this.model.ToJSONwithFormattedDate());
@@ -24,7 +9,7 @@ var UserCollection = Backbone.Collection.extend({
     model: User,
     url: '/api/ws100/core/users/',
 
-    parse: function(response) {
+    parse: function (response) {
         return response.results;
     }
 });
@@ -32,12 +17,12 @@ var UserCollection = Backbone.Collection.extend({
 var UsersView = Backbone.View.extend({
     tagName: 'tbody',
 
-    initialize: function() {
+    initialize: function () {
         this.boards = new UserCollection();
         this.boards.bind('sync', this.render, this);
     },
 
-    fetch: function() {
+    fetch: function () {
         this.boards.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -57,7 +42,7 @@ var UsersView = Backbone.View.extend({
 
 var users = new UsersView();
 
-function renderUsers(){
+function renderUsers() {
     users.fetch();
     $('#users-list').append(users.render().el);
     $('#page-users').show();

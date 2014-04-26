@@ -21,20 +21,9 @@
             <th>Stickers count</th>
         </tr>
         </thead>
-        {% verbatim %}
-        <script id="usersList" type="text/html">
-          <tr>
-            <td>{{ username }}</td>
-            <td>{{ first_name }}</td>
-            <td>{{ last_name }}</td>
-            <td>{{ email }}</td>
-            <td><span class="{{ statusColumn.class }}">{{ statusColumn.value }}</span></td>
-            <td>{{ date_joined }}</td>
-            <td>{{ boards.length }}</td>
-            <td>{{ stickers.length }}</td>
-          </tr>
-        </script>
-        {% endverbatim %}
+
+        {% include "bbtemplates/user_list.html" %}
+
     </table>
 </div>
 

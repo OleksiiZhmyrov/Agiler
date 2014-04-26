@@ -1,20 +1,16 @@
-$(function(){
-
-    var Settings = Backbone.Model.extend({
-        urlRoot: '/api/ws100/core/settings/'
-    });
+$(function () {
 
     var SettingsView = Backbone.View.extend({
         tagName: 'li',
         className: 'item',
 
-        initialize: function() {
+        initialize: function () {
             this.setting = new Settings();
             this.setting.bind('sync', this.render, this);
             this.setting.fetch({
                 error: (function (e) {
-                alert(' Service request failure: ' + e);
-            })
+                    alert(' Service request failure: ' + e);
+                })
             });
         },
 

@@ -17,16 +17,9 @@
             <th>Boards count</th>
         </tr>
         </thead>
-        {% verbatim %}
-        <script id="sprintsList" type="text/html">
-          <tr>
-            <td>Sprint {{ number }}</td>
-            <td>{{ start_date }}</td>
-            <td>{{ end_date }}</td>
-            <td>{{ boards.length }}</td>
-          </tr>
-        </script>
-        {% endverbatim %}
+
+        {% include "bbtemplates/sprints_list.html" %}
+
     </table>
 </div>
 

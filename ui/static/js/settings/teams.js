@@ -1,5 +1,3 @@
-var Team = Backbone.Model.extend({});
-
 var TeamView = Backbone.View.extend({
     render: function () {
         this.el = ich.teamsList(this.model.toJSON());
@@ -11,7 +9,7 @@ var TeamsCollection = Backbone.Collection.extend({
     model: Team,
     url: '/api/ws100/core/teams/',
 
-    parse: function(response) {
+    parse: function (response) {
         return response.results;
     }
 });
@@ -19,12 +17,12 @@ var TeamsCollection = Backbone.Collection.extend({
 var TeamsView = Backbone.View.extend({
     tagName: 'tbody',
 
-    initialize: function() {
+    initialize: function () {
         this.teams = new TeamsCollection();
         this.teams.bind('all', this.render, this);
     },
 
-    fetch: function() {
+    fetch: function () {
         this.teams.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -44,7 +42,7 @@ var TeamsView = Backbone.View.extend({
 
 var teams = new TeamsView();
 
-function renderTeams(){
+function renderTeams() {
     teams.fetch();
     $('#teams-list').append(teams.render().el);
     $('#page-teams').show();

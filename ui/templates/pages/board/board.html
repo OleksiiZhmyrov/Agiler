@@ -1,28 +1,9 @@
 <div class="app-page" id="board-page">
     <div id="board-details">
-        {% verbatim %}
-        <script id="boardDetails" type="text/html">
-
-    <ol class="breadcrumb">
-        <li><a href="#">Agiler</a></li>
-        <li><a href="#boards">Retro Boards</a></li>
-        <li>{{ team }}</li>
-        <li class="active">Sprint {{ sprint.number }}</li>
-    </ol>
-
-    <div class="page-header">
-        <h1><span class="glyphicon glyphicon-list-alt"></span>
-            Sprint {{ sprint.number }} <small>{{ team }}</small></h1>
-            <small>
-                Starts on <strong>{{ sprint.start_date }}</strong>,
-                ends on <strong>{{ sprint.end_date }}</strong>,
-                currently has <strong>{{ sprint.boards.length }}</strong> boards
-            </small>
+        {% include "bbtemplates/board_details.html" %}
     </div>
 
-    </script>
-        {% endverbatim %}
-    </div>
+    {% include "mocks/add_sticker_mock.html" %}
 
     {% include "pages/board/was_good.html" %}
     {% include "pages/board/need_to_change.html" %}

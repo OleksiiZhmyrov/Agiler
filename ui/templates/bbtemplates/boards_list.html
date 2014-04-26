@@ -1,0 +1,17 @@
+{% verbatim %}
+<script id="boardsList" type="text/html">
+    <tr>
+        <td>{{ team.label }}&nbsp;{{ team.name }}</td>
+        <td>Sprint {{ sprint }}</td>
+        <td>{{ voteLimit }}</td>
+        <td>{{ stickers.length }}</td>
+        <td>{{ owner }}</td>
+        <td><span class="{{ isActiveColumn.class }}">{{ isActiveColumn.value }}</span></td>
+        <td>
+            <a href="#boards/{{ pk }}" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-share-alt"></span> Open
+            </a>
+        </td>
+    </tr>
+</script>
+{% endverbatim %}

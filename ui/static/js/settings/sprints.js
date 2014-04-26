@@ -1,16 +1,3 @@
-var Sprint = Backbone.Model.extend({
-    ToJSONwithFormattedDate: function() {
-        var attr = _.clone(this.attributes);
-        if(attr.start_date) {
-            attr.start_date = moment(attr.start_date).format('DD-MM-YYYY');
-        }
-        if(attr.end_date) {
-            attr.end_date = moment(attr.end_date).format('DD-MM-YYYY');
-        }
-        return attr;
-    }
-});
-
 var SprintView = Backbone.View.extend({
     render: function () {
         this.el = ich.sprintsList(this.model.ToJSONwithFormattedDate());
@@ -22,7 +9,7 @@ var SprintCollection = Backbone.Collection.extend({
     model: Sprint,
     url: '/api/ws100/core/sprints/',
 
-    parse: function(response) {
+    parse: function (response) {
         return response.results;
     }
 });
@@ -30,12 +17,12 @@ var SprintCollection = Backbone.Collection.extend({
 var SprintsView = Backbone.View.extend({
     tagName: 'tbody',
 
-    initialize: function() {
+    initialize: function () {
         this.boards = new SprintCollection();
         this.boards.bind('all', this.render, this);
     },
 
-    fetch: function() {
+    fetch: function () {
         this.boards.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -55,7 +42,7 @@ var SprintsView = Backbone.View.extend({
 
 var sprints = new SprintsView();
 
-function renderSprints(){
+function renderSprints() {
     sprints.fetch();
     $('#sprints-list').append(sprints.render().el);
     $('#page-sprints').show();

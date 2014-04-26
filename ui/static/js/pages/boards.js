@@ -1,16 +1,3 @@
-var Board = Backbone.Model.extend({
-    ToJSONWithExtraFields: function() {
-        var attr = _.clone(this.attributes);
-        if(attr.isActive) {
-            attr.isActiveColumn = { value: "active", class: "label label-success" };
-        } else {
-            attr.isActiveColumn = { value: "closed", class: "label label-default" };
-        }
-        return attr;
-    }
-
-});
-
 var BoardView = Backbone.View.extend({
     render: function () {
         this.el = ich.boardsList(this.model.ToJSONWithExtraFields());
@@ -22,7 +9,7 @@ var BoardCollection = Backbone.Collection.extend({
     model: Board,
     url: '/api/ws100/retro/boards/',
 
-    parse: function(response) {
+    parse: function (response) {
         return response.results;
     }
 });
@@ -30,12 +17,12 @@ var BoardCollection = Backbone.Collection.extend({
 var BoardsView = Backbone.View.extend({
     tagName: 'tbody',
 
-    initialize: function() {
+    initialize: function () {
         this.boards = new BoardCollection();
         this.boards.bind('all', this.render, this);
     },
 
-    fetch: function() {
+    fetch: function () {
         this.boards.fetch({
             error: (function (e) {
                 alert(' Service request failure: ' + e);
@@ -55,7 +42,7 @@ var BoardsView = Backbone.View.extend({
 
 var boards = new BoardsView();
 
-function renderBoards(){
+function renderBoards() {
     boards.fetch();
     $('#boards-list').append(boards.render().el);
     $('#page-boards').show();
