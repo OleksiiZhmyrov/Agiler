@@ -5,3 +5,4 @@ local_settings.py
 .idea
 db.sqlite3
 env/logs/*.log
+env/cache/*

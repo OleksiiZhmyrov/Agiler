@@ -8,25 +8,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+ENV_DIR = os.path.join(BASE_DIR, 'env')
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'gl381ea@ouv9l5jtdhdqlt0!==u%y23rxg)0@)c3g%skkdzxb-'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
 SITE_ID = 1
 
 INSTALLED_APPS = (
@@ -60,11 +53,9 @@ WSGI_APPLICATION = 'Agiler.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(ENV_DIR, 'db.sqlite3'),
     }
 }
-
-PROJECT_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../')
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates/'),
@@ -136,3 +127,11 @@ LOGGING = {
 FIXTURE_DIRS = (
     os.path.join(PROJECT_ROOT, 'env/fixtures/'),
 )
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(ENV_DIR, 'cache'),
+        'TIMEOUT': 60 * 30,
+    }
+}
