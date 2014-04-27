@@ -7,7 +7,11 @@
 <ol id="help-list">
 
     {% for page in flatpages %}
-        <li class="item"><a href="{{ page.url }}" target="_blank">{{ page.title | truncatechars:25 }}</a></li>
+        <li class="item">
+            <a href="{{ page.url }}" target="_blank" title="{{ page.title }}">{{ page.title | truncatechars:25 }}
+                <span class="pull-right glyphicon glyphicon-new-window" title="Link will be opened in new window"></span>
+            </a>
+        </li>
     {% endfor %}
 
 </ol>
